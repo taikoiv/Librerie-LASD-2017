@@ -1,6 +1,6 @@
 # Librerie LASD 2017
-  - <b>[BST](https://github.com/taikoiv/LASD-2017/tree/master/heap-library)</b></br>
-  - <b>[Input](https://github.com/taikoiv/LASD-2017/tree/master/tableau-library)</b></br>
-  - <b>[Queue](https://github.com/taikoiv/LASD-2017/tree/master/queue-library)</b></br>
-  - <b>[Stack](https://github.com/taikoiv/LASD-2017/tree/master/abr-library)</b></br>
-  - <b>[Graph](https://github.com/taikoiv/LASD-2017/tree/master/abr-library)</b></br>
+  - <b>[BST](https://github.com/taikoiv/Librerie-LASD-2017/tree/master/BST)</b></br>
+  - <b>[Input](https://github.com/taikoiv/Librerie-LASD-2017/tree/master/Input)</b></br>
+  - <b>[Queue](https://github.com/taikoiv/Librerie-LASD-2017/tree/master/Queue)</b></br>
+  - <b>[Stack](https://github.com/taikoiv/Librerie-LASD-2017/tree/master/Stack)</b></br>
+  - <b>[Graph](https://github.com/taikoiv/Librerie-LASD-2017/tree/master/Graph)</b></br>
