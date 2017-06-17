@@ -16,7 +16,7 @@ Tree treeCreationMenu(int n){
 	int input=1;
 	do{
 		if(input==0 || input>3) printf("Nessuna azione associata al codice %d\n",input);
-		printf("Seleziore il metodo di creazione della nuova coda :\n");
+		printf("Seleziore il metodo di creazione del nuovo albero:\n");
 		printf("1) Albero vuoto\n");
 		printf("2) Albero popolato da valori forniti in input\n");
 		printf("3) Albero popolato da valori random\n");
@@ -34,7 +34,7 @@ Tree treeCreationMenu(int n){
 		int i;
 		for (i=0; i<n; i++) {
 			printf("Mancano %d valori\n", n);
-			while(!getInt(&input)){ printf("Il valore digitato non Ã¨ un intero, riprovare.\n");};
+			while(!getInt(&input)){ printf("Il valore digitato non è un intero, riprovare.\n");};
 			T = insertNodeTree(T, input);
 		}
 		return T;
@@ -105,13 +105,13 @@ void postOrderPrint(Tree T) {
 void graphic(Tree tree, char *str, int last){
     char tmp[100];
 	if(tree!=NULL){
-        //Cambia la modalitÃ  di stampa se Ã¨ l'ultimo figlio
+        //Cambia la modalità di stampa se è l'ultimo figlio
         if(!last)
             printf("%s--%d\n", str, tree->info);
         else
             printf("%s\\-%d\n", str, tree->info);
 
-        //Stampa i sottoalberi solo se almeno uno dei due non Ã¨ vuoto
+        //Stampa i sottoalberi solo se almeno uno dei due non è vuoto
         if(tree->sx != NULL || tree->dx != NULL) {
             //Sceglie la stringa da stampare in base al sottoalbero dove si scende
             sprintf(tmp, "%s  |", str);
