@@ -7,7 +7,7 @@
 #define ERR_EMPTY 1
 #define ERR_FULL 2
 
-void checkError(int *err) {
+void checkStackError(int *err) {
 	if (*err != 0) {
 		//Manage the error here
 		/*printf("Error\n");
@@ -27,7 +27,7 @@ void randomStack(Stack S, int n) {
     int i = 0;
     for (i = 0; i < n; i++) {
         push(S, rand() % 40);
-		checkError(err);
+		checkStackError(err);
     }
 }
 
@@ -115,7 +115,7 @@ void push(Stack S, int value){
 	} else {
 		*err = 1;
 	}
-	checkError(err);
+	checkStackError(err);
 }
 
 
@@ -125,11 +125,11 @@ int pop(Stack S){
 	if(!emptyStack(S)){
 		S->A[0]--;
 		*err = 0;
-		checkError(err);
+		checkStackError(err);
 		return S->A[S->A[0]+1];
 	} else {
 		*err = 2;
-		checkError(err);
+		checkStackError(err);
 		return 0;
 	}
 }

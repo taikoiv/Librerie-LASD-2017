@@ -7,7 +7,7 @@
 #define ERR_EMPTY 1
 #define ERR_FULL 2
 
-void checkError(int *err) {
+void checkQueueError(int *err) {
 	if (*err != 0) {
 		//Manage the error here
 		
@@ -106,7 +106,7 @@ void enqueue(Queue Q, int value){
         Q->A[QUEUE_MAX+1] = (Q->A[QUEUE_MAX+1] % (QUEUE_MAX)) + 1;
     } else {
         *err = ERR_FULL;
-		checkError(err);
+		checkQueueError(err);
     }
 }
 
@@ -133,7 +133,7 @@ int dequeue(Queue Q){
         }
     } else {
         *err = ERR_EMPTY;
-		checkError(err);
+		checkQueueError(err);
     }
     return value;
 }
@@ -150,7 +150,7 @@ void printQueueInc(Queue Q){
         enqueue(Q, value);
     } else {
         *err = ERR_EMPTY;
-		checkError(err);
+		checkQueueError(err);
     }
 }
 
@@ -165,7 +165,7 @@ void reverseQueue(Queue Q){
         enqueue(Q, value);
     } else {
         *err = ERR_EMPTY;
-		checkError(err);
+		checkQueueError(err);
     }
 }
 
