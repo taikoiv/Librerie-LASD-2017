@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 #include "stack.h"
 #include "../Input/inputReader.h"
 #define ERR_EMPTY 1
@@ -36,7 +37,7 @@ Stack stackCreationMenu(int n){
 	int input=1;
 	
 	do{
-		if(input==0 || input>3) 
+		if(input==0 || input>3) printf("Nessuna azione associata al codice %d. Riprovare\n",input);
 		printf("Seleziore il metodo di creazione del nuovo stack :\n");
 		printf("1) Stack vuoto\n");
 		printf("2) Stack popolato da valori forniti in input\n");
@@ -53,10 +54,15 @@ Stack stackCreationMenu(int n){
 		if(input==2){
 			if(n!=0) printf("Digita gli elementi da inserire : \n");
 			while(n>0){
-				printf("Mancano %d valori\n", n);
-				while(!getInt(&input)){ printf("Il valore digitato non Ã¨ un intero, riprovare.\n");};
-				push(s,input);
-				n--;
+				if(!fullStack(s)){
+					printf("Mancano %d valori\n", n);
+					while(!getInt(&input)){ printf("Il valore digitato non Ã¨ un intero, riprovare.\n");};
+					push(s,input);
+					n--;
+				} else {
+					printf("Stack pieno, non è possibile più di %d elementi\n",STACK_MAX);
+					break;
+				}
 			}
 		} else {
 			randomStack(s,n);
@@ -95,7 +101,7 @@ int headStack(Stack S) { //Restituisce l'elemento in testa allo stack senza rimu
         return S->A[S->A[0]+1];
 	}
 	else {
-		return -2147483648;
+		return INT_MIN;
 	}
 }
 

@@ -2,10 +2,6 @@
 #define Graph_Graph_h
 #include "list.h"
 
-#define INPUT 0
-#define RANDOM 1
-#define MANUAL 2
-
 struct TGraph {
     List *adj;
     int nodes_count;

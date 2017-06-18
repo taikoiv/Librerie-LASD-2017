@@ -1,10 +1,6 @@
 #ifndef ABR_Tree_h
 #define ABR_Tree_h
 
-#define INPUT 0
-#define RANDOM 1
-#define MANUAL 2
-
 struct TTree {
     int info;
     struct TTree* sx;

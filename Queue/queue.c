@@ -3,6 +3,7 @@
 #include "queue.h"
 #include "../Input/inputReader.h"
 #include <time.h>
+#include <limits.h>
 #define ERR_EMPTY 1
 #define ERR_FULL 2
 
@@ -52,10 +53,15 @@ Queue queueCreationMenu(int n){
 		if(input==2){
 			printf("Digita gli elementi da inserire : \n");
 			while(n>0){
-				printf("Mancano %d valori\n", n);
-				while(!getInt(&input)){ printf("Il valore digitato non Ã¨ un intero, riprovare.\n");};
-				enqueue(q,input);
-				n--;
+				if(!fullQueue(q)){
+					printf("Mancano %d valori\n", n);
+					while(!getInt(&input)){ printf("Il valore digitato non Ã¨ un intero, riprovare.\n");};
+					enqueue(q,input);
+					n--;
+				} else {
+					printf("Coda piena, non è possibile inserire più di %d elementi \n",QUEUE_MAX);
+					break;
+				}
 			}
 		} else {
 			randomQueue(q,n);
@@ -110,7 +116,7 @@ int headQueue(Queue Q) { //Restituisce l'elemento in testa alla coda senza rimuo
         return Q->A[Q->A[0]];
 	}
 	else {
-		return -2147483648;
+		return INT_MIN;
 	}
 }
 
