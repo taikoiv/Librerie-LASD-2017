@@ -195,7 +195,7 @@ void removeNode(Graph G, int node_to_remove) {
                 G->adj[x] = checkListRemoval(tmp[i], node_to_remove);
                 x++;
             } else {
-                freeList(G->adj[i]);
+                freeList(tmp[i]);
             }
         }
         free(tmp);
