@@ -85,7 +85,7 @@ int emptyQueue(Queue Q){
 }
 
 int dimQueue(Queue Q) { //Restituisce il numero di nodi attualmente nella coda
-	return Q->A[QUEUE_MAX+1]-1;
+	return ((Q->A[QUEUE_MAX+1]-Q->A[0])%QUEUE_MAX);
 }
 
 
