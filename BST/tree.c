@@ -33,7 +33,7 @@ Tree treeCreationMenu(int n){
 		Tree T = NULL;
 		int i;
 		for (i=0; i<n; i++) {
-			printf("Mancano %d valori\n", n);
+			printf("Mancano %d valori\n", n-i);
 			while(!getInt(&input)){ printf("Il valore digitato non è un intero, riprovare.\n");};
 			T = insertNodeTree(T, input);
 		}
