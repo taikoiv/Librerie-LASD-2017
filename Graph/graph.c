@@ -175,6 +175,7 @@ void addNode(Graph G) {
     if (G != NULL) {
     	List * old=G->adj;
     	int i=0;
+    	//G->adj = (List *)realloc(G->adj, (G->nodes_count+1) * sizeof(List));
         G->adj = (List *)malloc((G->nodes_count+1) * sizeof(List));
         for(i=0;i<G->nodes_count;i++)
         	G->adj[i]=old[i];
@@ -195,6 +196,7 @@ void removeNode(Graph G, int node_to_remove) {
                 G->adj[x] = checkListRemoval(tmp[i], node_to_remove);
                 x++;
             } else {
+				//freeList(G->adj[x]);
                 freeList(tmp[i]);
             }
         }
