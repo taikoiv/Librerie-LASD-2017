@@ -173,7 +173,11 @@ List removeEdge(Graph G, int source, int target) {
 
 void addNode(Graph G) {
     if (G != NULL) {
-        G->adj = (List *)realloc(G->adj, (G->nodes_count+1) * sizeof(List));
+    	List * old=G->adj;
+    	int i=0;
+        G->adj = (List *)malloc((G->nodes_count+1) * sizeof(List));
+        for(i=0;i<G->nodes_count;i++)
+        	G->adj[i]=old[i];
         G->nodes_count += 1;
         G->adj[G->nodes_count-1] = NULL;
     }
